@@ -6,7 +6,7 @@ var svgHeight = 650;
 var margin = {
   top: 20,
   right: 40,
-  bottom: 80, // Could use 60?
+  bottom: 80,
   left: 60
 };
 
@@ -48,8 +48,8 @@ d3.csv("data.csv").then(function(startData) {
         .range([height, 0]);
 
     // Setting our axes
-    var bottomAxis = d3.axisBottom(xLinearScale).ticks(20);
-    var leftAxis = d3.axisLeft(yLinearScale).ticks(20);
+    var bottomAxis = d3.axisBottom(xLinearScale).ticks(15);
+    var leftAxis = d3.axisLeft(yLinearScale).ticks(11);
 
     // Appending the axes
     chartGroup.append("g")
@@ -102,13 +102,13 @@ d3.csv("data.csv").then(function(startData) {
     
     // Label the axes
     chartGroup.append("text")
-        .attr("transform", `translate(${width / 2}, ${height + margin.top + 25})`)
+        .attr("transform", `translate(${width / 2 - 25}, ${height + margin.top + 25})`)
         .attr("class", "axisText")
         .text("Poverty %"); 
     
     chartGroup.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("x", 0 - (height / 2))
+        .attr("x", 0 - (height / 2 + 25))
         .attr("y", 0 - margin.left)
         .attr("dy", "1em")
         .attr("class", "axisText")
@@ -118,5 +118,5 @@ d3.csv("data.csv").then(function(startData) {
     
     // Just in case
     .catch(function(error) {
-        //do nothing
+        // do nothing
 });
