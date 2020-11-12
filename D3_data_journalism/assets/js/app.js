@@ -86,7 +86,7 @@ d3.csv("data.csv").then(function(startData) {
         .attr("class", "d3-tip")
         .offset([100,0])
         .html(d => {
-            return `<strong>${d.state}<strong><br>Poverty: ${d.poverty}%<br>Smoking: ${d.smokes}%`;
+            return `${d.state}<br>Poverty: ${d.poverty}%<br>Smoking: ${d.smokes}%`;
         });
     
     svg.call(toolTip);
